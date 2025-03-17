@@ -62,7 +62,7 @@ jobs:
           echo 'EOF' >> $GITHUB_ENV
 
       - name: helm deploy
-        uses: koslib/helm-eks-action@master
+        uses: tdarwin/helm-eks-action@v1
         env:
           KUBE_CONFIG_DATA: ${{ env.KUBE_CONFIG_DATA }}
         with:
@@ -78,7 +78,7 @@ Use the output of your command in later steps
     steps:
       - name: Get URL
         id: url
-        uses: koslib/helm-eks-action@master
+        uses: tdarwin/helm-eks-action@v1
         with:
           command: kubectl get svc my_svc -o json | jq -r '.status.loadBalancer.ingress[0].hostname'
 
@@ -94,8 +94,8 @@ The latest version of this action uses the following dependencies versions:
 | Package      | Version |
 | ----------- | ----------- |
 | awscli      | 1.24.0  |
-| helm   | 3.10.1        |
-| kubectl   | 1.25.4        |
+| helm   | 3.17.2        |
+| kubectl   | 1.32.2       |
 
 It is very much possible that an update came out and I did not update the action on time. In this please, feel free to [send me a PR](#contributing) and I'll review it as soon as possible.
 
@@ -118,6 +118,7 @@ If you find this configuration option complicated, you can still supply `KUBE_CO
 
 Pull requests, issues or feedback of any kind are more than welcome by anyone!
 
-If this action has helped you in any way and enjoyed it, feel free to submit feedback through [issues](https://github.com/koslib/helm-eks-action/issues) or buy me a coffee!
+If you have any issues with the action, please open an [issue](https://github.com/tdarwin/helm-eks-action/issues) in the repo.
 
+If you'd like to buy someone a coffee for this, hit up the person I created this fork from!
 <a href="https://www.buymeacoffee.com/koslib" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
