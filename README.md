@@ -1,8 +1,11 @@
 # helm-eks-action
-Github Action for executing Helm commands on EKS (using aws-iam-authenticator).
 
-The Helm version installed is Helm3.
+Github Action for executing `helm` and `kubectl` commands on EKS (using aws-iam-authenticator).
 
+Helm Version: 3.17.2
+Kubectl Version: 1.32.2
+
+This action is an updated version of [koslib/helm-eks-action](https://github.com/koslib/helm-eks-action)
 This action was inspired by [kubernetes-action](https://github.com/Jberlinsky/kubernetes-action).
 
 # Instructions
@@ -15,6 +18,7 @@ This Github Action was created with EKS in mind, therefore the following example
 2. `command`: your kubectl/helm command. This supports multiline as per the Github Actions workflow syntax.
 
 example for multiline:
+
 ```yaml
 ...
 with:
@@ -109,7 +113,6 @@ It is required to set the `KUBE_CONFIG_DATA` env/secret in order to access your 
 ```
 
 If you find this configuration option complicated, you can still supply `KUBE_CONFIG_DATA` as a repository secret, however this is not endorsed by this repository.
-
 
 # Contributing
 

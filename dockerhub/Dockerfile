@@ -1,4 +1,4 @@
-FROM --platform=${BUILDPLATFORM} alpine:3.18.4 AS Base
+FROM --platform=${BUILDPLATFORM} alpine:3.18.4 AS base
 
 # set build arguments automatically using buildx
 ARG BUILDPLATFORM
@@ -32,7 +32,7 @@ RUN chmod +x /usr/bin/kubectl
 RUN chmod +x /usr/local/bin/helm
 
 
-FROM base AS Exec
+FROM base AS exec
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
